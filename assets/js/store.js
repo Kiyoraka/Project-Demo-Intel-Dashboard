@@ -390,3 +390,143 @@ export const TICKET_METRICS = {
     { id: 'L-05', routeCode: 'KL-KB',   issue: 'Duplicate ticket IDs',        flag: 'system', amountRm: 0,    evidence: '2 distinct POS sessions issued overlapping ticket IDs, no revenue impact yet' },
   ],
 };
+
+/* ========== FINANCE (30-day cashFlow, receivables, cost/km, route profit) ========== */
+
+export const FINANCE_METRICS = {
+  cashOnHand: 412380,
+  cashOnHandDelta: 22140,
+  receivablesOver30d: 87140,
+  receivablesTrend: 'warn',
+  revenueToday: 128440,
+  revenueTodayDeltaPct: -5,
+  costPerKm: 2.14,
+  costPerKmDelta: -0.08,
+};
+
+export const CASH_FLOW = [
+  { day: 'Mar 24', revenue: 122800, cost: 92400 },
+  { day: 'Mar 25', revenue: 131200, cost: 93100 },
+  { day: 'Mar 26', revenue: 118600, cost: 91800 },
+  { day: 'Mar 27', revenue: 142500, cost: 94200 },
+  { day: 'Mar 28', revenue: 156800, cost: 95800 },
+  { day: 'Mar 29', revenue: 168400, cost: 97200 },
+  { day: 'Mar 30', revenue: 124100, cost: 92800 },
+  { day: 'Mar 31', revenue: 115200, cost: 90600 },
+  { day: 'Apr 01', revenue: 128900, cost: 93400 },
+  { day: 'Apr 02', revenue: 134600, cost: 94100 },
+  { day: 'Apr 03', revenue: 139200, cost: 94800 },
+  { day: 'Apr 04', revenue: 148700, cost: 95600 },
+  { day: 'Apr 05', revenue: 162300, cost: 96400 },
+  { day: 'Apr 06', revenue: 155800, cost: 95900 },
+  { day: 'Apr 07', revenue: 119400, cost: 91200 },
+  { day: 'Apr 08', revenue: 127800, cost: 92600 },
+  { day: 'Apr 09', revenue: 132100, cost: 93200 },
+  { day: 'Apr 10', revenue: 138400, cost: 94300 },
+  { day: 'Apr 11', revenue: 145900, cost: 95200 },
+  { day: 'Apr 12', revenue: 158200, cost: 96100 },
+  { day: 'Apr 13', revenue: 165400, cost: 96800 },
+  { day: 'Apr 14', revenue: 122400, cost: 91800 },
+  { day: 'Apr 15', revenue: 129600, cost: 92900 },
+  { day: 'Apr 16', revenue: 134200, cost: 93600 },
+  { day: 'Apr 17', revenue: 140800, cost: 94500 },
+  { day: 'Apr 18', revenue: 151600, cost: 95700 },
+  { day: 'Apr 19', revenue: 164200, cost: 96900 },
+  { day: 'Apr 20', revenue: 143800, cost: 95100 },
+  { day: 'Apr 21', revenue: 135500, cost: 94200 },
+  { day: 'Apr 22', revenue: 128440, cost: 93400 },
+];
+
+export const ROUTE_PROFIT = [
+  { routeCode: 'KL-PEN', profitRm:  48200, marginPercent: 34 },
+  { routeCode: 'KL-JB',  profitRm:  38600, marginPercent: 31 },
+  { routeCode: 'KL-IPH', profitRm:  28900, marginPercent: 36 },
+  { routeCode: 'MLK-KL', profitRm:  26400, marginPercent: 40 },
+  { routeCode: 'SBN-KL', profitRm:  24800, marginPercent: 42 },
+  { routeCode: 'SHA-KL', profitRm:  22100, marginPercent: 38 },
+  { routeCode: 'KL-KB',  profitRm:  18200, marginPercent: 22 },
+  { routeCode: 'KL-KTN', profitRm:  14600, marginPercent: 24 },
+  { routeCode: 'IPH-PEN',profitRm:  12400, marginPercent: 28 },
+  { routeCode: 'AS-KL',  profitRm:   8800, marginPercent: 18 },
+  { routeCode: 'KT-KL',  profitRm:   6200, marginPercent: 14 },
+  { routeCode: 'KB-SGR', profitRm:  -3800, marginPercent: -9 },
+];
+
+export const RECEIVABLES = [
+  { id: 'AR-01', client: 'SME Tours Sdn Bhd',     outstandingRm: 42800, daysOverdue: 67, bucket: '60-90', action: 'escalate' },
+  { id: 'AR-02', client: 'KL Gov Transit Office', outstandingRm: 18500, daysOverdue: 48, bucket: '30-60', action: 'chase'    },
+  { id: 'AR-03', client: 'Corporate Alpha Ltd',   outstandingRm: 12200, daysOverdue: 91, bucket: '90+',   action: 'legal'    },
+  { id: 'AR-04', client: 'Universiti Kelantan',   outstandingRm:  8400, daysOverdue: 35, bucket: '30-60', action: 'reminder' },
+  { id: 'AR-05', client: 'Sabah Link Travel',     outstandingRm:  6100, daysOverdue: 42, bucket: '30-60', action: 'chase'    },
+  { id: 'AR-06', client: 'Heritage Tours Sdn Bhd',outstandingRm:  5200, daysOverdue: 38, bucket: '30-60', action: 'chase'    },
+  { id: 'AR-07', client: 'Penang Excursions',     outstandingRm:  3900, daysOverdue: 72, bucket: '60-90', action: 'escalate' },
+  { id: 'AR-08', client: 'EastCoast Ventures',    outstandingRm:  3400, daysOverdue: 29, bucket: '30-60', action: 'reminder' },
+  { id: 'AR-09', client: 'Johor Coach Network',   outstandingRm:  2800, daysOverdue: 33, bucket: '30-60', action: 'reminder' },
+  { id: 'AR-10', client: 'Melaka School Group',   outstandingRm:  2640, daysOverdue: 45, bucket: '30-60', action: 'chase'    },
+];
+
+/* ========== FLEET AGGREGATE METRICS ========== */
+
+export const FLEET_METRICS = {
+  uptimePercent: 94,
+  uptimeDeltaPct: 2,
+  inServiceToday: 28,
+  inServiceTotal: 30,
+  predictiveAlerts: 7,
+  predictiveAlertsNew: 3,
+  meanTimeBetweenFailures: 142,
+  meanTimeDeltaHours: 12,
+  top5PreventiveService: [
+    { plate: 'JQE 4421', route: 'KL-JB',       alert: 'Brake wear 78%',     costToAvoidRm: 8400 },
+    { plate: 'PRK 7733', route: 'Ipoh-Penang', alert: 'Tire depth low',     costToAvoidRm: 3200 },
+    { plate: 'MLK 4466', route: 'Melaka-KL',   alert: 'Engine temp high',   costToAvoidRm: 5600 },
+    { plate: 'KTN 1199', route: 'KB-KL',       alert: 'Oil pressure',       costToAvoidRm: 1800 },
+    { plate: 'SGR 2241', route: 'Shah-KL',     alert: 'Battery voltage',    costToAvoidRm:  900 },
+  ],
+};
+
+/* ========== EXECUTIVE OVERVIEW TILES + ACTION FEED ========== */
+
+export const EXEC_KPIS = [
+  { domain: 'fleet',     label: 'Fleet Uptime',   value: '94%',       deltaText: '+2%',  delta: 'up',   accent: 'good'    },
+  { domain: 'finance',   label: 'Cash Today',     value: 'RM 128K',   deltaText: '-5%',  delta: 'down', accent: 'gold'    },
+  { domain: 'demand',    label: 'Network Load',   value: '71%',       deltaText: '+3%',  delta: 'up',   accent: 'info'    },
+  { domain: 'workforce', label: 'Crew On Duty',   value: '28 / 30',   deltaText: 'OK',   delta: 'flat', accent: 'warn'    },
+  { domain: 'revenue',   label: 'Tickets Today',  value: '1,247',     deltaText: '+8%',  delta: 'up',   accent: 'primary' },
+];
+
+export const ALERTS = [
+  { rank: 1,  domain: 'fleet',     icon: 'fa-triangle-exclamation', text: 'Bus JQE 4421 brake alert — service within 3 days',         cost: 'RM 8,400 avoid' },
+  { rank: 2,  domain: 'demand',    icon: 'fa-route',                text: 'KL-Penang Fri PM — add 2 trips to meet demand',             cost: '+RM 4,200 / wk' },
+  { rank: 3,  domain: 'finance',   icon: 'fa-wallet',               text: 'SME Tours receivable now 67 days — escalate',               cost: 'RM 42,800' },
+  { rank: 4,  domain: 'workforce', icon: 'fa-users',                text: 'Monday 6am 3-driver gap — call standby now',                cost: 'Fill 100%' },
+  { rank: 5,  domain: 'revenue',   icon: 'fa-ticket',               text: 'KB-SGR route — 12 post-journey voids flagged to driver',   cost: 'RM 840' },
+  { rank: 6,  domain: 'fleet',     icon: 'fa-bus',                  text: 'Maintenance queue — 4 buses service-due this week',          cost: 'RM 20,000' },
+  { rank: 7,  domain: 'demand',    icon: 'fa-chart-line',           text: 'KL-JB off-peak utilization 31% — schedule review needed',   cost: 'Review' },
+  { rank: 8,  domain: 'workforce', icon: 'fa-triangle-exclamation', text: 'Sarah Tan overtime 58 hrs/wk — swap with Ng Siew Li',       cost: '-8 hrs OT' },
+  { rank: 9,  domain: 'revenue',   icon: 'fa-arrow-trend-down',     text: 'App channel ticket volume swing — investigate 2hr window',  cost: 'Review' },
+  { rank: 10, domain: 'finance',   icon: 'fa-coins',                text: 'Eastbound route profitability dip — margin down 4%',         cost: 'Review' },
+];
+
+/* ========== CROSS-HELPERS ========== */
+
+export function findRoute(code) {
+  return ROUTES.find((r) => r.code === code);
+}
+
+export function findBus(idOrPlate) {
+  return FLEET.find((b) => b.id === idOrPlate || b.plate === idOrPlate);
+}
+
+export function findDriver(id) {
+  return DRIVERS.find((d) => d.id === id);
+}
+
+export function findCustomer(id) {
+  return CUSTOMERS.find((c) => c.id === id);
+}
+
+export function filteredFleet(filter) {
+  if (!filter || filter === 'all') return FLEET;
+  return FLEET.filter((b) => b.status === filter);
+}
