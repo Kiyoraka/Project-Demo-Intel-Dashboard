@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fleet Reliability — Maraliner Intel Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" />
+  <link rel="stylesheet" href="../libs/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/tokens.css" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div data-partial="sidebar"></div>
+    <div class="main-content">
+      <div data-partial="topbar"></div>
+      <div class="page-content">
+        <section id="kpi-strip" class="kpi-strip"></section>
+        <div class="card">
+          <div class="card-header">
+            <h3>Fleet Health Grid</h3>
+            <div class="card-actions">
+              <div class="filter-tabs" id="fleet-filter">
+                <button type="button" class="active" data-filter="all">All</button>
+                <button type="button" data-filter="healthy">Healthy</button>
+                <button type="button" data-filter="watch">Watch</button>
+                <button type="button" data-filter="due">Service Due</button>
+                <button type="button" data-filter="breakdown">Breakdown</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="fleet-grid" class="fleet-grid"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3>Top 5 Buses Flagged for Preventive Service This Week</h3>
+            <div class="card-actions">
+              <span class="badge badge-warn">Cost-to-Avoid: RM 19,900</span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Plate</th>
+                  <th>Route</th>
+                  <th>Alert</th>
+                  <th class="num">Cost to Avoid</th>
+                </tr>
+              </thead>
+              <tbody id="preventive-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="bus-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-labelledby="bus-modal-title">
+      <div class="modal-header">
+        <h3 id="bus-modal-title">Bus Details</h3>
+        <button type="button" class="modal-close" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body" id="bus-modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-ghost" data-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../libs/chart.umd.min.js"></script>
+  <script type="module">
+    import { requireAuth } from '../assets/js/auth.js';
+    import { initChrome } from '../assets/js/partials.js';
+    import { renderFleetPage } from '../assets/js/pages/fleet.js';
+
+    requireAuth();
+    initChrome('Fleet Reliability').then(() => renderFleetPage());
+  </script>
+</body>
+</html>
