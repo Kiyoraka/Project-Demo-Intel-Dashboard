@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 100" role="img" aria-label="Maraliner mark">
+  <g transform="translate(5, 7)">
+    <polygon points="42,0 60,0 30,86 12,86" fill="#C9A227"/>
+    <polygon points="62,0 80,0 50,86 32,86" fill="#C9A227"/>
+    <polygon points="0,0 20,0 52,86 32,86" fill="#C8234A"/>
+    <polygon points="22,0 42,0 72,86 52,86" fill="#C8234A"/>
+  </g>
+</svg>
