@@ -1,0 +1,88 @@
+/* Maraliner Intel Dashboard — Design Tokens */
+
+:root {
+  /* Brand colors — from Maraliner logo */
+  --brand-primary: #C8234A;
+  --brand-primary-dark: #A01838;
+  --brand-primary-soft: #FBE7EC;
+  --brand-accent: #C9A227;
+  --brand-accent-dark: #A8861C;
+  --brand-accent-soft: #FAF2D7;
+
+  /* Surfaces */
+  --bg-page: #FFFFFF;
+  --bg-surface: #F8FAFC;
+  --bg-subtle: #F1F5F9;
+  --bg-sidebar: #FFFFFF;
+  --bg-topbar: #FFFFFF;
+
+  /* Text */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-inverse: #FFFFFF;
+
+  /* Borders and dividers */
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --divider: #F1F5F9;
+
+  /* Status / semantic */
+  --status-good: #10B981;
+  --status-good-soft: #D1FAE5;
+  --status-warn: #F59E0B;
+  --status-warn-soft: #FEF3C7;
+  --status-bad: #EF4444;
+  --status-bad-soft: #FEE2E2;
+  --status-info: #0EA5E9;
+  --status-info-soft: #E0F2FE;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+
+  /* Typography */
+  --font-sans: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 800;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Layout */
+  --sidebar-width: 240px;
+  --sidebar-rail-width: 72px;
+  --topbar-height: 64px;
+  --content-max-width: 1600px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  /* Z-index layers */
+  --z-sidebar: 20;
+  --z-topbar: 30;
+  --z-dropdown: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+}
