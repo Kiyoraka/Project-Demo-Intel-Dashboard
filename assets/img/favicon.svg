@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Maraliner">
+  <rect width="32" height="32" rx="6" fill="#FFFFFF"/>
+  <g transform="translate(3.5, 4)">
+    <polygon points="14,0 20,0 10,24 4,24" fill="#C9A227"/>
+    <polygon points="20,0 25,0 15,24 10,24" fill="#C9A227"/>
+    <polygon points="0,0 7,0 17,24 10,24" fill="#C8234A"/>
+    <polygon points="7,0 14,0 24,24 17,24" fill="#C8234A"/>
+  </g>
+</svg>
