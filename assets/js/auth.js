@@ -3,7 +3,7 @@
 const CREDENTIALS = {
   email: 'admin@gmail.com',
   password: 'admin123',
-  displayName: 'Kay Moris',
+  displayName: 'Administrator',
   role: 'CEO',
 };
 
