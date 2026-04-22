@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workforce Deployment — Maraliner Intel Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" />
+  <link rel="stylesheet" href="../libs/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/tokens.css" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div data-partial="sidebar"></div>
+    <div class="main-content">
+      <div data-partial="topbar"></div>
+      <div class="page-content">
+        <section id="kpi-strip" class="kpi-strip"></section>
+        <div class="card">
+          <div class="card-header">
+            <h3>Weekly Crew Roster (30 drivers x 7 days)</h3>
+            <div class="card-actions">
+              <span class="badge badge-good">On-shift</span>
+              <span class="badge badge-primary">Overtime</span>
+              <span class="badge badge-neutral">Rest</span>
+              <span class="badge badge-warn">Gap</span>
+              <span class="badge badge-bad">Compliance Risk</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="gantt-host" class="gantt"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3>Top 5 Shift Optimization Suggestions</h3>
+            <div class="card-actions">
+              <span class="badge badge-info">Action ready</span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Issue</th>
+                  <th>Action</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
+              <tbody id="suggestions-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../libs/chart.umd.min.js"></script>
+  <script type="module">
+    import { requireAuth } from '../assets/js/auth.js';
+    import { initChrome } from '../assets/js/partials.js';
+    import { renderWorkforcePage } from '../assets/js/pages/workforce.js';
+
+    requireAuth();
+    initChrome('Workforce Deployment').then(() => renderWorkforcePage());
+  </script>
+</body>
+</html>
