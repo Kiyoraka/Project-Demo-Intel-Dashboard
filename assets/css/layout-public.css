@@ -1,0 +1,196 @@
+/* Maraliner Intel Dashboard — Public (login) page styling */
+
+.public-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--brand-primary-soft) 60%, var(--brand-accent-soft) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.public-shell::before,
+.public-shell::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.public-shell::before {
+  width: 360px;
+  height: 360px;
+  background: var(--brand-primary);
+  top: -140px;
+  right: -120px;
+}
+
+.public-shell::after {
+  width: 280px;
+  height: 280px;
+  background: var(--brand-accent);
+  bottom: -120px;
+  left: -80px;
+}
+
+.login-card {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-page);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-10) var(--space-8);
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid var(--border);
+}
+
+.login-card .logo-block {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.login-card .logo-block img {
+  width: 180px;
+  margin: 0 auto var(--space-3);
+}
+
+.login-card .logo-block .tagline {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.02em;
+}
+
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:hover {
+  border-color: var(--border-strong);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px var(--brand-primary-soft);
+}
+
+.error-banner {
+  background: var(--status-bad-soft);
+  color: var(--status-bad);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-4);
+  display: none;
+}
+
+.error-banner.visible {
+  display: block;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 12px 20px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border-color: var(--brand-primary);
+}
+
+.btn-primary:hover {
+  background: var(--brand-primary-dark);
+  border-color: var(--brand-primary-dark);
+  color: var(--text-inverse);
+  text-decoration: none;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.btn-lg {
+  padding: 14px 24px;
+  font-size: 15px;
+}
+
+.demo-hint {
+  margin-top: var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+}
+
+.public-footer {
+  position: absolute;
+  bottom: var(--space-5);
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  z-index: 1;
+}
+
+.public-footer .dot {
+  margin: 0 var(--space-2);
+  color: var(--border-strong);
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: var(--space-8) var(--space-5);
+  }
+  .login-card .logo-block img {
+    width: 150px;
+  }
+}
