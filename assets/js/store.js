@@ -124,3 +124,131 @@ export const MAINTENANCE_EVENTS = [
   { id: 'M-049', busId: 'B-19', date: '2026-01-12', type: 'unscheduled', description: 'Door seal replacement',                     costRm: 320,   status: 'completed'   },
   { id: 'M-050', busId: 'B-30', date: '2026-01-08', type: 'scheduled',   description: 'Routine 50K service',                       costRm: 1550,  status: 'completed'   },
 ];
+
+/* ========== DEMAND MATRIX (12 routes x 10 two-hour slots) ========== */
+/* Load % by route and time-of-day bucket. Buckets: 06-08, 08-10, 10-12, 12-14, 14-16, 16-18, 18-20, 20-22, 22-00, 00-02 */
+
+export const DEMAND_HOUR_LABELS = ['06-08', '08-10', '10-12', '12-14', '14-16', '16-18', '18-20', '20-22', '22-00', '00-02'];
+
+export const DEMAND_MATRIX = [
+  { routeCode: 'KL-PEN', routeName: 'KL - Penang',   load: [22, 78, 88, 65, 72, 91, 95, 74, 40, 8] },
+  { routeCode: 'KL-JB',  routeName: 'KL - JB',       load: [18, 62, 82, 79, 85, 92, 88, 71, 38, 12] },
+  { routeCode: 'KL-KB',  routeName: 'KL - Kota Bharu', load: [16, 44, 68, 78, 82, 81, 73, 52, 28, 6] },
+  { routeCode: 'KL-IPH', routeName: 'KL - Ipoh',     load: [35, 72, 84, 66, 72, 88, 82, 60, 32, 10] },
+  { routeCode: 'KL-KTN', routeName: 'KL - Kuantan',  load: [24, 58, 70, 64, 68, 74, 76, 54, 26, 4] },
+  { routeCode: 'MLK-KL', routeName: 'Melaka - KL',   load: [42, 88, 66, 55, 62, 85, 89, 68, 32, 8] },
+  { routeCode: 'IPH-PEN',routeName: 'Ipoh - Penang', load: [12, 48, 72, 68, 65, 78, 62, 44, 18, 2] },
+  { routeCode: 'SBN-KL', routeName: 'Seremban - KL', load: [58, 92, 78, 62, 68, 90, 94, 72, 38, 10] },
+  { routeCode: 'SHA-KL', routeName: 'Shah Alam - KL',load: [68, 94, 82, 68, 72, 94, 96, 80, 42, 14] },
+  { routeCode: 'KB-SGR', routeName: 'KB - Sg Petani',load: [8, 22, 34, 40, 42, 38, 28, 18, 10, 0] },
+  { routeCode: 'AS-KL',  routeName: 'Alor Setar - KL', load: [14, 38, 58, 56, 54, 62, 66, 48, 22, 4] },
+  { routeCode: 'KT-KL',  routeName: 'KT - KL',       load: [12, 32, 52, 58, 56, 64, 68, 50, 22, 3] },
+];
+
+export const NETWORK_METRICS = {
+  loadFactor: 71,
+  peakLoad: 89,
+  offPeakLoad: 34,
+  peakOffPeakGap: 55,
+  unservedSignals: 12,
+  routesBelowThreshold: 3,
+  scheduleSuggestions: [
+    { routeCode: 'KL-PEN', change: 'Add 2 trips Fri PM', projectedGainRm: 4200, cadence: 'per week' },
+    { routeCode: 'KL-JB',  change: 'Shift 14:00 trip to 13:30', projectedGainRm: 1800, cadence: 'per week' },
+    { routeCode: 'KB-SGR', change: 'Cut Mon/Tue off-peak trips', projectedGainRm: 900,  cadence: 'cost savings per week' },
+    { routeCode: 'IPH-PEN',change: 'Add Sun return trip', projectedGainRm: 2100, cadence: 'per week' },
+    { routeCode: 'KL-KB',  change: 'Reduce Wed frequency', projectedGainRm: 1200, cadence: 'cost savings per week' },
+  ],
+};
+
+/* ========== DRIVERS (30) ========== */
+/* Ethnic mix reflects real Malaysian bus-operator workforce */
+
+export const DRIVERS = [
+  { id: 'D-01', name: 'Ahmad Zulkifli',  licenceClass: 'E',  yearsService: 12, phone: '012-334-8821', status: 'active'  },
+  { id: 'D-02', name: 'Sarah Tan',        licenceClass: 'E',  yearsService: 8,  phone: '017-225-1142', status: 'active'  },
+  { id: 'D-03', name: 'Raj Kumaran',      licenceClass: 'E1', yearsService: 15, phone: '019-886-4401', status: 'active'  },
+  { id: 'D-04', name: 'Wei Ming Lee',     licenceClass: 'E',  yearsService: 6,  phone: '013-441-5598', status: 'active'  },
+  { id: 'D-05', name: 'Fatimah Hassan',   licenceClass: 'E',  yearsService: 10, phone: '016-772-3388', status: 'active'  },
+  { id: 'D-06', name: 'Hassan Omar',      licenceClass: 'E1', yearsService: 18, phone: '012-118-7742', status: 'active'  },
+  { id: 'D-07', name: 'Lim Kok Wai',      licenceClass: 'E',  yearsService: 9,  phone: '017-990-2240', status: 'active'  },
+  { id: 'D-08', name: 'Ng Siew Li',       licenceClass: 'E',  yearsService: 7,  phone: '019-334-1156', status: 'active'  },
+  { id: 'D-09', name: 'Karthik Raman',    licenceClass: 'E1', yearsService: 14, phone: '013-667-8823', status: 'active'  },
+  { id: 'D-10', name: 'Siti Nurhaliza',   licenceClass: 'E',  yearsService: 5,  phone: '016-228-4410', status: 'active'  },
+  { id: 'D-11', name: 'Chong Mun Fai',    licenceClass: 'E',  yearsService: 11, phone: '012-884-5521', status: 'active'  },
+  { id: 'D-12', name: 'Azmi Rahim',       licenceClass: 'E',  yearsService: 8,  phone: '017-338-9902', status: 'active'  },
+  { id: 'D-13', name: 'Priya Devi',       licenceClass: 'E',  yearsService: 6,  phone: '019-224-4478', status: 'active'  },
+  { id: 'D-14', name: 'Tan Boon Hock',    licenceClass: 'E1', yearsService: 16, phone: '013-772-2248', status: 'active'  },
+  { id: 'D-15', name: 'Ibrahim Yusof',    licenceClass: 'E',  yearsService: 9,  phone: '016-445-7721', status: 'active'  },
+  { id: 'D-16', name: 'Suresh Pillai',    licenceClass: 'E',  yearsService: 7,  phone: '012-990-3324', status: 'active'  },
+  { id: 'D-17', name: 'Goh Teck Seng',    licenceClass: 'E',  yearsService: 13, phone: '017-882-1108', status: 'risk'    },
+  { id: 'D-18', name: 'Ramli Osman',      licenceClass: 'E1', yearsService: 20, phone: '019-334-8856', status: 'active'  },
+  { id: 'D-19', name: 'Lim Chee Keong',   licenceClass: 'E',  yearsService: 8,  phone: '013-228-7740', status: 'active'  },
+  { id: 'D-20', name: 'Nurul Ain',        licenceClass: 'E',  yearsService: 4,  phone: '016-667-2290', status: 'active'  },
+  { id: 'D-21', name: 'Chandran Arumugam',licenceClass: 'E1', yearsService: 17, phone: '012-554-1108', status: 'active'  },
+  { id: 'D-22', name: 'Yap Wei Lun',      licenceClass: 'E',  yearsService: 6,  phone: '017-334-5587', status: 'active'  },
+  { id: 'D-23', name: 'Zulkifli Anwar',   licenceClass: 'E',  yearsService: 11, phone: '019-778-2240', status: 'active'  },
+  { id: 'D-24', name: 'Maniam Subramaniam', licenceClass: 'E', yearsService: 13, phone: '013-445-8821', status: 'active'  },
+  { id: 'D-25', name: 'Aminah Othman',    licenceClass: 'E',  yearsService: 5,  phone: '016-228-9925', status: 'active'  },
+  { id: 'D-26', name: 'Wong Kah Hong',    licenceClass: 'E1', yearsService: 14, phone: '012-667-3340', status: 'active'  },
+  { id: 'D-27', name: 'Ismail Rahman',    licenceClass: 'E',  yearsService: 10, phone: '017-882-4401', status: 'active'  },
+  { id: 'D-28', name: 'Tan Swee Leong',   licenceClass: 'E',  yearsService: 8,  phone: '019-336-7720', status: 'underused' },
+  { id: 'D-29', name: 'Balan Krishnan',   licenceClass: 'E',  yearsService: 9,  phone: '013-224-5588', status: 'active'  },
+  { id: 'D-30', name: 'Kamarul Hafiz',    licenceClass: 'E',  yearsService: 6,  phone: '016-771-3302', status: 'underused' },
+];
+
+/* ========== ROSTER (7 days x 30 drivers) ========== */
+/* Shift codes: shift | overtime | rest | gap | risk */
+
+const R_MON = 0, R_TUE = 1, R_WED = 2, R_THU = 3, R_FRI = 4, R_SAT = 5, R_SUN = 6;
+
+export const ROSTER_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+export const ROSTER = [
+  { driverId: 'D-01', days: ['shift','shift','shift','shift','shift','rest','rest']       },
+  { driverId: 'D-02', days: ['shift','overtime','shift','shift','shift','shift','rest']   },
+  { driverId: 'D-03', days: ['shift','shift','rest','shift','shift','overtime','shift']   },
+  { driverId: 'D-04', days: ['rest','shift','shift','shift','overtime','shift','rest']    },
+  { driverId: 'D-05', days: ['shift','shift','shift','rest','shift','shift','shift']      },
+  { driverId: 'D-06', days: ['shift','shift','shift','shift','shift','rest','rest']       },
+  { driverId: 'D-07', days: ['rest','shift','shift','shift','shift','shift','rest']       },
+  { driverId: 'D-08', days: ['shift','rest','shift','shift','shift','shift','shift']      },
+  { driverId: 'D-09', days: ['shift','shift','shift','shift','rest','shift','rest']       },
+  { driverId: 'D-10', days: ['shift','shift','shift','shift','shift','rest','rest']       },
+  { driverId: 'D-11', days: ['shift','shift','rest','shift','shift','shift','shift']      },
+  { driverId: 'D-12', days: ['shift','shift','shift','shift','shift','rest','rest']       },
+  { driverId: 'D-13', days: ['rest','shift','shift','shift','shift','shift','shift']      },
+  { driverId: 'D-14', days: ['shift','shift','shift','rest','shift','shift','rest']       },
+  { driverId: 'D-15', days: ['shift','shift','shift','shift','shift','rest','rest']       },
+  { driverId: 'D-16', days: ['gap','shift','shift','shift','shift','shift','rest']        },
+  { driverId: 'D-17', days: ['shift','shift','shift','shift','risk','risk','shift']       },
+  { driverId: 'D-18', days: ['shift','shift','rest','shift','shift','shift','shift']      },
+  { driverId: 'D-19', days: ['shift','overtime','shift','shift','shift','rest','rest']    },
+  { driverId: 'D-20', days: ['gap','shift','shift','rest','shift','shift','shift']        },
+  { driverId: 'D-21', days: ['shift','shift','shift','shift','shift','overtime','rest']   },
+  { driverId: 'D-22', days: ['shift','rest','shift','shift','shift','shift','shift']      },
+  { driverId: 'D-23', days: ['shift','shift','shift','shift','overtime','shift','rest']   },
+  { driverId: 'D-24', days: ['shift','shift','rest','shift','shift','shift','rest']       },
+  { driverId: 'D-25', days: ['rest','shift','shift','shift','shift','shift','shift']      },
+  { driverId: 'D-26', days: ['shift','shift','shift','rest','shift','overtime','rest']    },
+  { driverId: 'D-27', days: ['gap','shift','shift','shift','shift','shift','rest']        },
+  { driverId: 'D-28', days: ['rest','rest','shift','shift','rest','rest','shift']         },
+  { driverId: 'D-29', days: ['shift','shift','shift','shift','shift','rest','rest']       },
+  { driverId: 'D-30', days: ['rest','rest','shift','rest','shift','shift','rest']         },
+];
+
+export const WORKFORCE_METRICS = {
+  onDutyToday: 28,
+  totalDrivers: 30,
+  weeklyOvertimeHours: 42,
+  complianceRate: 92,
+  openShiftGaps: 3,
+  gapDay: 'Mon AM',
+  suggestions: [
+    { issue: 'Mon 6am gap (3 drivers)',       action: 'Call Hassan/Lim/Ismail on standby', impact: 'Fill 100%'    },
+    { issue: 'Sarah Tan overtime 58 hrs/wk',  action: 'Swap Wed shift with Ng Siew Li',    impact: '-8 hrs OT'    },
+    { issue: 'Raj Thu/Fri back-to-back',       action: 'Insert mandatory rest Saturday',    impact: 'Compliance'  },
+    { issue: 'Compliance risk: Goh Teck Seng', action: 'Force 48hr rest immediately',       impact: 'Mandatory'   },
+    { issue: 'Underused: Tan/Kamarul < 20 hrs', action: 'Reassign to KL-Penang weekend trips', impact: '+coverage' },
+  ],
+};
