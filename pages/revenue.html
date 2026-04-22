@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revenue &amp; Customer Data — Maraliner Intel Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&display=swap" />
+  <link rel="stylesheet" href="../libs/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/tokens.css" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/layout-dashboard.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div data-partial="sidebar"></div>
+    <div class="main-content">
+      <div data-partial="topbar"></div>
+      <div class="page-content">
+        <section id="kpi-strip" class="kpi-strip"></section>
+        <div class="dashboard-grid asymmetric">
+          <div class="card">
+            <div class="card-header">
+              <h3>Unified Ticketing Feed</h3>
+              <div class="card-actions">
+                <span class="badge badge-primary">Live</span>
+              </div>
+            </div>
+            <ul id="ticket-feed" class="feed-list"></ul>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h3>Customer Segments</h3>
+              <div class="card-actions">
+                <span class="badge badge-good">38% repeat</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart-host h-280">
+                <canvas id="segment-chart"></canvas>
+              </div>
+              <div id="channel-mix" style="margin-top: 16px;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3>Top 5 Revenue Leakage Alerts</h3>
+            <div class="card-actions">
+              <span class="badge badge-bad" id="leakage-total-badge">RM 0 flagged</span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Route</th>
+                  <th>Issue</th>
+                  <th>Flag</th>
+                  <th class="num">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="leakage-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="leak-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-labelledby="leak-modal-title">
+      <div class="modal-header">
+        <h3 id="leak-modal-title">Leakage Alert</h3>
+        <button type="button" class="modal-close" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body" id="leak-modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-ghost" data-close>Close</button>
+        <button type="button" class="btn btn-primary">Open Investigation</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../libs/chart.umd.min.js"></script>
+  <script type="module">
+    import { requireAuth } from '../assets/js/auth.js';
+    import { initChrome } from '../assets/js/partials.js';
+    import { renderRevenuePage } from '../assets/js/pages/revenue.js';
+
+    requireAuth();
+    initChrome('Revenue & Customer Data').then(() => renderRevenuePage());
+  </script>
+</body>
+</html>
