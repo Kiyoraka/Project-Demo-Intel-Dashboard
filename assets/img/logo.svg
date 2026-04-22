@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 110" role="img" aria-label="Maraliner">
+  <g transform="translate(6, 12)">
+    <polygon points="42,0 60,0 30,86 12,86" fill="#C9A227"/>
+    <polygon points="62,0 80,0 50,86 32,86" fill="#C9A227"/>
+    <polygon points="0,0 20,0 52,86 32,86" fill="#C8234A"/>
+    <polygon points="22,0 42,0 72,86 52,86" fill="#C8234A"/>
+  </g>
+  <text x="110" y="76" font-family="Poppins, 'Segoe UI', sans-serif" font-weight="800" font-style="italic" font-size="56" fill="#C8234A" letter-spacing="2">MARALINER</text>
+</svg>
