@@ -1,0 +1,56 @@
+<header class="topbar" role="banner">
+  <div class="topbar-left">
+    <button type="button" class="sidebar-toggle" aria-label="Toggle sidebar" id="sidebar-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <h1 class="page-title" data-page-title>Dashboard</h1>
+  </div>
+
+  <div class="topbar-right">
+    <div class="topbar-notifications">
+      <button type="button" class="icon-btn" aria-label="Notifications" id="notif-btn">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notif-badge" aria-hidden="true">3</span>
+      </button>
+      <div class="notif-dropdown" id="notif-dropdown" hidden>
+        <div class="notif-dropdown-header">
+          <span>Notifications</span>
+          <small>3 new</small>
+        </div>
+        <ul class="notif-list">
+          <li>
+            <i class="fa-solid fa-triangle-exclamation" style="color: var(--status-warn);"></i>
+            <div>
+              <strong>Bus JQE 4421 brake alert</strong>
+              <small>Service recommended within 3 days</small>
+            </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-wallet" style="color: var(--status-bad);"></i>
+            <div>
+              <strong>SME Tours receivable aging</strong>
+              <small>RM 42,800 now 67 days overdue</small>
+            </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-route" style="color: var(--status-info);"></i>
+            <div>
+              <strong>KL-Penang demand spike Fri PM</strong>
+              <small>Add 2 trips suggested, +RM 4,200/wk</small>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topbar-user">
+      <div class="user-avatar" aria-hidden="true">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="user-info">
+        <span class="user-name" data-user-name>Administrator</span>
+        <span class="user-role" data-user-role>CEO</span>
+      </div>
+    </div>
+  </div>
+</header>
