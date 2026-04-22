@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maraliner Intel Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <meta name="description" content="Maraliner Bus Operations Intelligence Platform — pitch demo" />
+  <style>
+    body { margin: 0; background: #FFFFFF; }
+  </style>
+</head>
+<body>
+  <script type="module">
+    import { isAuthenticated } from './assets/js/auth.js';
+    const target = isAuthenticated() ? 'pages/exec-overview.html' : 'login.html';
+    window.location.replace(target);
+  </script>
+  <noscript>
+    <p style="font-family: sans-serif; padding: 2rem;">
+      Please enable JavaScript to view the Maraliner Intel Dashboard.
+    </p>
+  </noscript>
+</body>
+</html>
